@@ -85,41 +85,13 @@ const Dashboard = () => {
   }
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: colors.blueDark,
-      }}>
-      <View
-        style={{
-          height: 40,
-
-          marginHorizontal: 8 * 2,
-          marginVertical: 8,
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 1,
-          },
-          shadowOpacity: 0.22,
-          shadowRadius: 2.22,
-
-          elevation: 3,
-        }}>
-        <Text style={{fontSize: 8 * 2}}>STREAM REWARD</Text>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              marginRight: 4 * 3,
-            }}>
-            <Text style={{marginRight: 2, marginTop: 8}}>M</Text>
-            <Text style={{fontSize: 8 * 3}}>100.21</Text>
+    <View style={styles.wrapper}>
+      <View style={styles.topBar}>
+        <Text style={styles.topBarTitle}>STREAM REWARD</Text>
+        <View style={styles.topBarContainer}>
+          <View style={styles.topBarContainerMonetas}>
+            <Text style={styles.topBarContainerMonetasCoin}>M</Text>
+            <Text style={styles.topBarContainerMonetasValue}>100.21</Text>
           </View>
           <FontAwesomeIcon icon={faBars} size={8 * 3} color={colors.white} />
         </View>
@@ -137,16 +109,14 @@ const Dashboard = () => {
           source={{
             html: playerHTML,
           }}
-          style={{
-            flex: 1,
-          }}
+          style={styles.container}
           ref={playerRef}
           onMessage={handleOnMessage}
         />
       </View>
-      <View style={{flex: 1}}>
+      <View style={styles.container}>
         <WebView
-          style={{flex: 1}}
+          style={styles.container}
           originWhitelist={['*']}
           source={{
             uri: `https://www.twitch.tv/embed/${stream}/chat`,
